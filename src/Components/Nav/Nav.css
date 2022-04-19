@@ -1,0 +1,23 @@
+.wrap-nav {
+  box-shadow: var(--shadow);
+  width: 100%;
+  height: 80px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar img {
+  height: 80px;
+}
+
+.create-qr {
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  color: var(--white);
+  background-color: var(--main);
+}
