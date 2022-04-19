@@ -19,7 +19,7 @@ export default function ListAdvices({ search, setSearch }) {
       .catch(console.log);
 
     return () => abortController.abort();
-  }, []);
+  }, [advices]);
 
   let result = advices;
   (function filterAdvices() {
