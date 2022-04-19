@@ -1,20 +1,26 @@
-import React from 'react'
-import './Search.css'
-// eslint-disable-next-line react/prop-types
-export default function Search({setSearch}) {
+import React from 'react';
+import PropTypes from 'prop-types';
+import './Search.css';
+
+export default function Search({ search, setSearch }) {
   return (
-    <div className='container'>
-        <div className="search">
-        <input type='text' onChange={
-            (e) => setSearch(e.target.value)
-            } 
-            placeholder='search for advice'/>
+    <div className="container">
+      <div className="search">
+        <input
+          className="search-input"
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="search for advice"
+        />
 
-        <button type='submit'>search</button>
-
-        </div>
-         
-        
+        <button type="submit">Search</button>
+      </div>
     </div>
-  )
+  );
 }
+
+Search.propTypes = {
+  search: PropTypes.string,
+  setSearch: PropTypes.func,
+};

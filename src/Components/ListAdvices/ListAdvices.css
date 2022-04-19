@@ -1,6 +1,22 @@
 .ListAdvices {
-  padding-top: 100px;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.wrap-no-result {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn-search-again {
+  padding: 10px 20px;
+  background-color: var(--main);
+  color: var(--white);
+  border-radius: 8px;
 }
