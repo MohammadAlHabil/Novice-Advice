@@ -86,10 +86,7 @@ a {
   padding: 0 30px;
 }
 
-.App {
-  margin: 0 auto;
-}
-
 .container {
+  margin: 0 auto;
   width: 90%;
 }
