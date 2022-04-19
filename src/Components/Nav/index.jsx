@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import './Nav.css';
 import logo from '../../images/logo.png';
 export default function Nav({ setOpenModal }) {
@@ -19,3 +21,7 @@ export default function Nav({ setOpenModal }) {
     </div>
   );
 }
+
+Nav.propTypes = {
+  setOpenModal: PropTypes.func,
+};
