@@ -1,5 +1,6 @@
 import React from 'react'
 import './Search.css'
+// eslint-disable-next-line react/prop-types
 export default function Search({setSearch}) {
   return (
     <div className='container'>

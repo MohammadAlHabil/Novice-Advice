@@ -1,4 +1,5 @@
-import { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
 import './App.css';
 import Nav from './Components/Nav';
 import Search from './Components/Search';
@@ -10,7 +11,7 @@ function App() {
     <div className="App">
       {/* {openModal && <div></div>} */}
       <Nav setOpenModal={setOpenModal} />
-      <Search setSearch={setSearch}/>
+      <Search search={search}/>
     </div>
   );
 }
