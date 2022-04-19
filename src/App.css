@@ -92,3 +92,9 @@ a {
   margin: 0 auto;
 
 }
+
+.opened-model {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
