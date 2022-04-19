@@ -1,0 +1,8 @@
+.ListAdvices-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 30px;
+  border-radius: 12px;
+  background-color: rgb(236, 236, 236);
+}

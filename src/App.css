@@ -86,8 +86,8 @@ a {
   padding: 0 30px;
 }
 
-
 .container {
+  margin: 0 auto;
   width: 90%;
   margin: 0 auto;
 
