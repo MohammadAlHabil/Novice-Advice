@@ -53,7 +53,7 @@ export default function ListAdvices({ search, setSearch }) {
           </div>
         ) : (
           result.map((advice, index) => {
-            return <AdviceCard key={index} advice={advice} />;
+            return <AdviceCard key={index} advice={advice} search={search} />;
           })
         )}
       </ul>
