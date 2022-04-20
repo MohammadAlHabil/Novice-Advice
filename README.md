@@ -1,7 +1,7 @@
 # Novice-Advice
 ---
 
-# Live Link Of Our Website [Here](https://timely-peony-53f3a5.netlify.app/)
+# You can visit our website [Here](https://timely-peony-53f3a5.netlify.app/)
 
 ---
 ## Description 
