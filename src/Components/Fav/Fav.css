@@ -1,0 +1,6 @@
+.fav-content {
+  padding: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

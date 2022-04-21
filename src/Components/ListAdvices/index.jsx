@@ -5,7 +5,12 @@ import { useEffect, useState } from 'react';
 import AdviceCard from './../AdviceCard';
 import noResult from '../../images/noResult.svg';
 
-export default function ListAdvices({ search, setSearch }) {
+export default function ListAdvices({
+  search,
+  setSearch,
+  favorite,
+  setFavorite,
+}) {
   const [advices, setAdvices] = useState([]);
 
   useEffect(() => {
@@ -52,8 +57,16 @@ export default function ListAdvices({ search, setSearch }) {
             </button>
           </div>
         ) : (
-          result.map((advice, index) => {
-            return <AdviceCard key={index} advice={advice} search={search} />;
+          result.map((advice) => {
+            return (
+              <AdviceCard
+                key={advice.id}
+                advice={advice}
+                search={search}
+                favorite={favorite}
+                setFavorite={setFavorite}
+              />
+            );
           })
         )}
       </ul>
@@ -64,4 +77,6 @@ export default function ListAdvices({ search, setSearch }) {
 ListAdvices.propTypes = {
   search: PropTypes.string,
   setSearch: PropTypes.func,
+  favorite: PropTypes.array,
+  setFavorite: PropTypes.func,
 };
