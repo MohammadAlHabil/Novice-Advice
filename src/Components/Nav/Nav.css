@@ -26,3 +26,15 @@
   font-weight: bold;
   cursor: pointer;
 }
+
+.fav-icon {
+  border-radius: 8px;
+  padding: 8px;
+  background-color: #fef3f0;
+}
+
+.active {
+  border-radius: 8px;
+  padding: 8px;
+  background-color: var(--main);
+}
