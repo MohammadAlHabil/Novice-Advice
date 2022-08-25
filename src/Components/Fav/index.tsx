@@ -1,9 +1,15 @@
-import React from 'react';
-import { PropTypes } from 'prop-types';
-import AdviceCard from './../AdviceCard';
-import './Fav.css';
+import React from "react";
+import AdviceCard from "../AdviceCard";
+import { Favorite } from "../ListAdvices";
+import "./Fav.css";
 
-export default function Fav({ favorite, setFavorite, search }) {
+interface FavProps {
+  favorite: Favorite;
+  setFavorite: React.Dispatch<React.SetStateAction<Favorite>>;
+  search: string;
+}
+
+export default function Fav({ favorite, setFavorite, search }: FavProps) {
   return (
     <div className="fav-content">
       {favorite.length ? (
@@ -24,9 +30,3 @@ export default function Fav({ favorite, setFavorite, search }) {
     </div>
   );
 }
-
-Fav.propTypes = {
-  favorite: PropTypes.array,
-  setFavorite: PropTypes.func,
-  search: PropTypes.string,
-};

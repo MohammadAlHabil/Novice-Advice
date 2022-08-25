@@ -1,22 +1,28 @@
-import React, { useState } from 'react';
-import './Modal.css';
-import PropTypes from 'prop-types';
-import 'boxicons';
+import React, { useState } from "react";
+import "./Modal.css";
+import "boxicons";
 
-export default function Modal({ setOpenModal }) {
-  const [data, setData] = useState('');
+interface ModalProps {
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+type FormEvent = HTMLInputElement & { data: { value: string } };
+
+export default function Modal({ setOpenModal }: ModalProps) {
+  const [data, setData] = useState("");
 
   return (
     <div className="model" onClick={() => setOpenModal(false)}>
       <div className="contents" onClick={(e) => e.stopPropagation()}>
         <div className="close__icon" onClick={() => setOpenModal(false)}>
+          {/* @ts-ignore */}
           <box-icon name="x"></box-icon>
         </div>
         <form
           className="qr-form"
           onSubmit={(e) => {
             e.preventDefault();
-            setData(e.target.data.value);
+            setData((e.target as FormEvent).data.value);
           }}
         >
           <label>
@@ -44,7 +50,3 @@ export default function Modal({ setOpenModal }) {
     </div>
   );
 }
-
-Modal.propTypes = {
-  setOpenModal: PropTypes.func,
-};
