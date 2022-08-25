@@ -1,8 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './Search.css';
+import React from "react";
+import "./Search.css";
 
-export default function Search({ search, setSearch }) {
+interface SearchProps {
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function Search({ search, setSearch }: SearchProps) {
   return (
     <div className="search">
       <input
@@ -15,8 +19,3 @@ export default function Search({ search, setSearch }) {
     </div>
   );
 }
-
-Search.propTypes = {
-  search: PropTypes.string,
-  setSearch: PropTypes.func,
-};

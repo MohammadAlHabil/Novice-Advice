@@ -1,9 +1,22 @@
-import './AdviceCard.css';
-import React from 'react';
-import PropTypes from 'prop-types';
-import fav from '../../images/fav.svg';
+import "./AdviceCard.css";
+import React from "react";
+import fav from "../../images/fav.svg";
+import { Favorite, Slip } from "../ListAdvices";
+import "boxicons";
 
-export default function AdviceCard({ advice, search, favorite, setFavorite }) {
+interface AdviceCardProps {
+  advice: Slip;
+  search: string;
+  favorite: Favorite;
+  setFavorite: React.Dispatch<React.SetStateAction<Favorite>>;
+}
+
+export default function AdviceCard({
+  advice,
+  search,
+  favorite,
+  setFavorite,
+}: AdviceCardProps) {
   let firstHtmlPart, secondHtmlPart;
   (function findAndColorWord() {
     const word = advice.advice;
@@ -21,7 +34,7 @@ export default function AdviceCard({ advice, search, favorite, setFavorite }) {
     <li className="ListAdvices-item">
       <div>
         {firstHtmlPart}
-        <span style={{ color: 'red' }}>{' ' + search}</span>
+        <span style={{ color: "red" }}>{" " + search}</span>
         {secondHtmlPart}
       </div>
 
@@ -32,17 +45,18 @@ export default function AdviceCard({ advice, search, favorite, setFavorite }) {
               favorite.findIndex((fav) => fav.advice === advice.advice),
               1
             );
-            localStorage.setItem('fav', JSON.stringify(favorite));
+            localStorage.setItem("fav", JSON.stringify(favorite));
             setFavorite((favorite) => [...favorite]);
           }}
         >
+          {/* @ts-ignore */}
           <box-icon name="heart" type="solid"></box-icon>
         </div>
       ) : (
         <div
           onClick={() => {
             setFavorite((prev) => [advice, ...prev]);
-            localStorage.setItem('fav', JSON.stringify([advice, ...favorite]));
+            localStorage.setItem("fav", JSON.stringify([advice, ...favorite]));
           }}
         >
           <img src={fav} alt="fav" />
@@ -51,10 +65,3 @@ export default function AdviceCard({ advice, search, favorite, setFavorite }) {
     </li>
   );
 }
-
-AdviceCard.propTypes = {
-  advice: PropTypes.object,
-  search: PropTypes.string,
-  favorite: PropTypes.array,
-  setFavorite: PropTypes.func,
-};

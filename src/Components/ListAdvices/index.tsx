@@ -1,17 +1,37 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './ListAdvices.css';
-import { useEffect, useState } from 'react';
-import AdviceCard from './../AdviceCard';
-import noResult from '../../images/noResult.svg';
+import React from "react";
+import "./ListAdvices.css";
+import { useEffect, useState } from "react";
+import AdviceCard from "../AdviceCard";
+import noResult from "../../images/noResult.svg";
+
+interface APIResponse {
+  total_results: number;
+  query: string;
+  slips: Slip[];
+}
+
+export interface Slip {
+  id: number;
+  advice: string;
+  date: string;
+}
+
+export type Favorite = Slip[];
+
+interface ListAdvicesProps {
+  search: string;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  favorite: Favorite;
+  setFavorite: React.Dispatch<React.SetStateAction<Favorite>>;
+}
 
 export default function ListAdvices({
   search,
   setSearch,
   favorite,
   setFavorite,
-}) {
-  const [advices, setAdvices] = useState([]);
+}: ListAdvicesProps) {
+  const [advices, setAdvices] = useState<Slip[]>([]);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -20,7 +40,7 @@ export default function ListAdvices({
       signal: abortController.signal,
     })
       .then((data) => data.json())
-      .then((data) => setAdvices(data.slips))
+      .then((data: APIResponse) => setAdvices(data.slips))
       .catch(console.log);
 
     return () => abortController.abort();
@@ -28,7 +48,7 @@ export default function ListAdvices({
 
   let result = advices;
   (function filterAdvices() {
-    if (search === '') return result;
+    if (search === "") return result;
     else {
       return (result = advices.filter((advice) => {
         return advice.advice.toLowerCase().includes(search.toLowerCase());
@@ -37,8 +57,8 @@ export default function ListAdvices({
   })();
 
   const SearchAgain = () => {
-    document.querySelector('.search-input').focus();
-    setSearch('');
+    (document.querySelector(".search-input") as HTMLInputElement).focus();
+    setSearch("");
   };
 
   return (
@@ -73,10 +93,3 @@ export default function ListAdvices({
     </div>
   );
 }
-
-ListAdvices.propTypes = {
-  search: PropTypes.string,
-  setSearch: PropTypes.func,
-  favorite: PropTypes.array,
-  setFavorite: PropTypes.func,
-};
